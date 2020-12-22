@@ -12,16 +12,20 @@
 */
 
 //Route pour la page authentification
-Route::get('/',function(){return view('auth/login');});
-//Route home
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-//Route chèque
-Route::resource('/cheque', 'ChequeController');
-Route::get('/cheque/{idCheq}/edit', 'ChequeController@edit')->name('cheque.edit');
-Route::post('/cheque/{idCheq}/update', 'ChequeController@update')->name('cheque.update');
-//Route tableau de bord
-Route::get('/bord', 'BordController@index')->name('bord');
+//Route::get('/',function(){return view('auth/login');});
+
+//Route Accueil
+Route::get('/', 'AccueilController@index')->name('acceuil.index');
+
+//Route Articles
+Route::get('article/index','ArticleController@index')->name('article.index');
+Route::get('article/create','ArticleController@create')->name('article.create');
+Route::post('article/store','ArticleController@store')->name('article.store');
+
+//Route Auteur
+Route::resource('/auteur','AuteurController');
+Route::get('auteur/create','AuteurController@create')->name('auteur.create');
+Route::post('auteur/store','AuteurController@store')->name('auteur.store');
 
 
 

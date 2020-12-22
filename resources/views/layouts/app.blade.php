@@ -1,33 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
-@section('htmlheader')
-    @include('layouts.partials.htmlheader')
-@show
+    @section('styles-page')
+       @include('layouts.partials.__styles')
+    @show
 <body >
-<div id="app" v-cloak>
-    <div class="wrapper">
-    @include('layouts.partials.mainheader')
-    
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left: -9px;margin-right: 5px">
-
-        @include('layouts.partials.contentheader')
-
-        <!-- Main content -->
-        <section class="content">
-            <!-- Your Page Content Here -->
-            @yield('main-content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-
-    @include('layouts.partials.footer')
-
-</div><!-- ./wrapper -->
-</div>
-@section('scripts')
-    @include('layouts.partials.scripts')
-@show
-</body>
+<!-- inclusion page entete et menus -->
+      @include('layouts.partials.__entete')
+      @include('layouts.partials.__menus')
+  <div id="app" v-cloak>
+      @yield('contenu-page')
+  </div>
+<!-- inclusion js -->
+   @section('scripts')
+    @include('layouts.partials.__scripts')
+   @show
+  </body>
 </html>
